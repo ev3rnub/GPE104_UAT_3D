@@ -14,6 +14,7 @@ public class PawnSpaceship : Pawn
     private Rigidbody rb;
 
 
+    // using addForce
     public override void Move(Vector3 someVec3)
     {
         if (rb != null) rb.AddForce(someVec3 * moveSpeed, ForceMode.Force);
@@ -21,7 +22,7 @@ public class PawnSpaceship : Pawn
 
     public override void Rotate3D(float someEuler)
     {
-                // Vector3.up handles Y-axis turning (Yaw)
+        // Vector3.up handles Y-axis turning (Yaw)
         if (rb != null) rb.AddTorque(transform.up * someEuler * turnSpeed, ForceMode.Force);
     }
 
@@ -47,12 +48,14 @@ public class PawnSpaceship : Pawn
         }
     }
 
+    // stop all spinning etc
     public override void Brake()
     {
         //rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
 
+    // use arrow keys to trust directionally, simulating RCS thrusters.
     public override void StrafeLeft(float amount)
     {
        if (rb != null) rb.AddForce(-transform.right * amount * moveSpeed, ForceMode.Force);
