@@ -32,5 +32,10 @@ Add functionality to allow us to yaw, pitch and do a barrel roll.
 Move the camera, using code, so that it smoothly follows the player while looking at a point a designer-defined distance in front of the player, giving the player control over the camera's offset from the player.
 Move and adapt any applicable code created in the previous project (health, shooting, death, menus, settings) to this new project.
 
+## Unity Issues/bugs:
+- Sometimes the Master volume slider can't be adjusted/moved. Not sure why. 
+
 ## Project Features Timeline
-- 10/14/2027:08:54PM - Ported over alot of the scripts from the previous 2d project. Modified existing scripts/code structure to use 3d model/assets in place of sprite. The player spaceship can shoot, use forces to move, can die and destroy astroids. I added a control as an extra to stop all angular motion via the X key. 
+- 10/14/2026:08:54PM - Ported over alot of the scripts from the previous 2d project. Modified existing scripts/code structure to use 3d model/assets in place of sprite. The player spaceship can shoot, use forces to move, can die and destroy astroids. I added a control as an extra to stop all angular motion via the X key. 
+
+- 10/17/2026:01:29AM - Added a UFO, EnemyAI, partially implemented GUI, OptionsGUI, MainMenu, win/lose. Setup Audio stuffs. MainMenu has sound. Added asteroid sfx to astroids. 
