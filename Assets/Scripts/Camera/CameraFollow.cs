@@ -20,7 +20,9 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    // Runs every frame to smoothly follow the target's position and rotation.
+    // Lerp interpolates position, while Slerp smoothly interpolates rotation; Time.deltaTime helps account for frame rate.
+    void Update()
     {
         if (target != null)
         {

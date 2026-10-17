@@ -103,7 +103,7 @@ public class MainMenuScreen : MonoBehaviour
     {
         Debug.Log("Loading First Level, Good LUCK!");
         // Load scene by name (you can specify the scene name here)
-        LoadScene("Level1"); // Replace with your actual scene name
+        LoadScene("TestLevel"); // Replace with your actual scene name
     }
 
     public void OnOptionsBtnPressed()

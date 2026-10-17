@@ -1,3 +1,8 @@
+//Course: GPE104 
+//Prof: Matthew Henry 
+//Student: Chad V
+//NOT USED yet.
+
 using UnityEngine;
 
 public class AsteroidBreak : MonoBehaviour

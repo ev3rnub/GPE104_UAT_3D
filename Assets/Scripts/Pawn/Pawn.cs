@@ -18,4 +18,8 @@ public abstract class Pawn : MonoBehaviour
     public abstract void StrafeDown(float someDirection);
     public abstract void StrafeRight(float someDirection);
     public abstract void StrafeLeft(float someDirection);
+
+    public abstract void Seek(GameObject someGameObject);
+    public abstract void Seek(Transform someTransform);
+    public abstract void Seek(Vector3 someVec3);
 }

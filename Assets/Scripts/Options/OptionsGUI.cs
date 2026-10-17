@@ -15,17 +15,31 @@ public class OptionsGUI : MonoBehaviour
     private const string MusicKey = "MusicVolume";
     private const string SfxKey = "SFXVolume";
 
-    public void Start()
+
+    private void Start()
     {
+        if (mainAudioMixer == null ||
+            mainVolumeSlider == null ||
+            musicVolumeSlider == null ||
+            sfxVolumeSlider == null)
+        {
+            Debug.LogError(
+                "OptionsGUI: Assign the Audio Mixer and all three Sliders in the Inspector.",
+                this
+            );
+            enabled = false;
+            return;
+        }
+
         mainVolumeSlider.value = PlayerPrefs.GetFloat(MasterKey, 1f);
         musicVolumeSlider.value = PlayerPrefs.GetFloat(MusicKey, 1f);
         sfxVolumeSlider.value = PlayerPrefs.GetFloat(SfxKey, 1f);
 
-        //init our sound on start
         OnMainVolumeChange();
         OnMusicVolumeChange();
         OnSFXVolumeChange();
     }
+
 
     public void OnMainVolumeChange()
     {

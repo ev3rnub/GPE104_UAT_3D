@@ -379,9 +379,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Roll the dice: UFO or large asteroid?
-        bool isUfo = enemyPrefab != null &&
-                     UnityEngine.Random.Range(0f, 100f) < ufoChancePercent;
-        Debug.Log($"isUfo = {isUfo}");
+        bool isUfo = enemyPrefab != null && UnityEngine.Random.Range(0f, 100f) < ufoChancePercent;
 
         GameObject prefabToSpawn = isUfo ? enemyPrefab : astroidPrefab;
         GameObject newEnemy = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);

@@ -14,7 +14,7 @@ public class PawnSpaceship : Pawn
     private Rigidbody rb;
 
 
-    // using addForce
+    // using addForce, AddTorque to move the pawn w/forces. 
     public override void Move(Vector3 someVec3)
     {
         if (rb != null) rb.AddForce(someVec3 * moveSpeed, ForceMode.Force);
@@ -76,6 +76,35 @@ public class PawnSpaceship : Pawn
        if (rb != null) rb.AddForce(-transform.up * amount * moveSpeed, ForceMode.Force);
     }
 
+
+    //AI Pawn Seek functions that looks for the player and seeks them out. 
+    public override void Seek(GameObject someGameObject)
+    {
+        Seek(someGameObject.transform);
+    }
+
+    public override void Seek(Transform someTransform)
+    {
+        Seek(someTransform.position);
+    }
+
+    public override void Seek(Vector3 someVec3)
+    {
+        RotateTowards(someVec3);
+        Move(tf.forward);
+    }
+
+    public void RotateTowards(Vector3 someVec3)
+    {
+        //Find Player Vector
+        Vector3 vec3ToTarget = someVec3 - tf.position;
+        //Find rotation instructions
+        Quaternion lookRotation = Quaternion.LookRotation(vec3ToTarget, Vector3.up);
+        // rotate a bit each frame. 
+        tf.rotation = Quaternion.RotateTowards(tf.rotation, lookRotation, turnSpeed * Time.deltaTime);
+    }
+
+    //start
     public void Start()
     {
         tf = GetComponent<Transform>();

@@ -112,16 +112,20 @@ public class ControllerPlayer : MyController
                 somePawn.Pitch3D(0.05f);
             }
 
-            // check if Q or e is pressed.
+            // check if Q or E is pressed.
+            // ROLL right
             if (Keyboard.current[rotateShipRight].wasPressedThisFrame)
+            {
+                somePawn.Roll3D(-0.05f);
+            }
+
+            // ROLL left
+            if (Keyboard.current[rotateShipLeft].wasPressedThisFrame)
             {
                 somePawn.Roll3D(0.05f);
             }
 
-            if (Keyboard.current[rotateShipLeft].wasPressedThisFrame)
-            {
-                somePawn.Roll3D(-0.05f);
-            }
+
 
             if (Keyboard.current[Brake].isPressed)
             {

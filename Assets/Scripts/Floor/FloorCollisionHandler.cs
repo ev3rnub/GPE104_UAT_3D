@@ -20,6 +20,10 @@ public class FloorCollisionHandler : MonoBehaviour
         {
             HandleAsteroidCollision(collision);
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("SHOULDNT destroy the floor?");
+        }
     }
     
     void OnTriggerEnter(Collider other)
