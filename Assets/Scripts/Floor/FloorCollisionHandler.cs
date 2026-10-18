@@ -20,20 +20,22 @@ public class FloorCollisionHandler : MonoBehaviour
         {
             HandleAsteroidCollision(collision);
         }
+        // Enemy?
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("SHOULDNT destroy the floor?");
+            HandleEnemyAICollision(collision);
         }
     }
     
-    void OnTriggerEnter(Collider other)
-    {
-        // Check if the colliding object is an asteroid
-        if (other.CompareTag("Astroid"))
-        {
-            HandleAsteroidCollisionTrigger(other);
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     // Check if the colliding object is an asteroid
+    //     if (other.CompareTag("Astroid"))
+    //     {
+    //         HandleAsteroidCollisionTrigger(other);
+    //     }
+
+    // }
     
     void HandleAsteroidCollision(Collision collision)
     {
@@ -55,22 +57,35 @@ public class FloorCollisionHandler : MonoBehaviour
             // Add upward force to prevent getting stuck
             asteroidRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
-        
-        // Make sure the floor is not destroyed
-        // The floor should remain intact
     }
-    
-    void HandleAsteroidCollisionTrigger(Collider asteroidCollider)
+
+    void HandleEnemyAICollision(Collision collision)
     {
-        Debug.Log("Floor trigger hit by asteroid - bouncing asteroid");
-        
-        // Get the asteroid that hit us
-        Rigidbody asteroidRb = asteroidCollider.GetComponent<Rigidbody>();
-        if (asteroidRb != null)
+        Rigidbody enemyRB = collision.gameObject.GetComponent<Rigidbody>();
+        if (enemyRB != null)
         {
-            // Simple bounce (reverse Y velocity)
-            asteroidRb.linearVelocity = new Vector3(asteroidRb.linearVelocity.x, -asteroidRb.linearVelocity.y * 0.8f, asteroidRb.linearVelocity.z);
-            asteroidRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            // get col norm
+            Vector3 normal = collision.GetContact(0).normal;
+            // reflect
+            Vector3 bounceDirection = Vector3.Reflect(enemyRB.linearVelocity, normal);
+            //apply bounch
+            enemyRB.linearVelocity = bounceDirection * 0.8f;
+            //add upward force
+            enemyRB.AddForce(Vector3.up * 5, ForceMode.Impulse);
         }
     }
+    
+    // void HandleAsteroidCollisionTrigger(Collider asteroidCollider)
+    // {
+    //     Debug.Log("Floor trigger hit by asteroid - bouncing asteroid");
+        
+    //     // Get the asteroid that hit us
+    //     Rigidbody asteroidRb = asteroidCollider.GetComponent<Rigidbody>();
+    //     if (asteroidRb != null)
+    //     {
+    //         // Simple bounce (reverse Y velocity)
+    //         asteroidRb.linearVelocity = new Vector3(asteroidRb.linearVelocity.x, -asteroidRb.linearVelocity.y * 0.8f, asteroidRb.linearVelocity.z);
+    //         asteroidRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+    //     }
+    // }
 }

@@ -17,8 +17,7 @@ public class AsteroidBounce : MonoBehaviour
             rb = gameObject.AddComponent<Rigidbody>();
         }
         
-        // Set the asteroid to be affected by physics
-        rb.useGravity = true;
+
         rb.angularDamping = 0.05f;
         
         // Store initial velocity for reference

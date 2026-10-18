@@ -6,5 +6,7 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         GameManager.someGameManager.obstacleList.Add(this);
+        Debug.Log($"Adding obstacle to list. Total before: {GameManager.someGameManager.obstacleList.Count}");
+        Debug.Log($"Obstacle added. Total after: {GameManager.someGameManager.obstacleList.Count}");        
     }
 }

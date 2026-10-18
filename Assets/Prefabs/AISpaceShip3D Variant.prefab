@@ -57,8 +57,20 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4520067415575230871, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      propertyPath: turnSpeed
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520067415575230871, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
       propertyPath: someController
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133957901828096653, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133957901828096653, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8901624543432467569, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
       propertyPath: m_IsTrigger
@@ -66,12 +78,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7463338992846272336, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+    - {fileID: 2686903191456855094, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+    - {fileID: -5862865429450164021, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4232306015401952777, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4109980727288369140}
+    - targetCorrespondingSourceObject: {fileID: 4232306015401952777, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3671297405078353625}
+    - targetCorrespondingSourceObject: {fileID: 4232306015401952777, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8115548887680254124}
+    - targetCorrespondingSourceObject: {fileID: 4232306015401952777, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9185184609794472332}
   m_SourcePrefab: {fileID: 100100000, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
 --- !u!1 &5284604006707955095 stripped
 GameObject:
@@ -90,5 +113,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6968d8858f84653bd570fbf56d762f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIController
-  somePawn: {fileID: 0}
-  someGameObject: {fileID: 0}
+  somePawn: {fileID: 5570959200173603337}
+  someGameObject: {fileID: 4232306015401952777, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+--- !u!114 &-3671297405078353625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284604006707955095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a72e7f0d5cbe4c1685bd21c0a44e40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroyManager
+  someScoreValue: 50
+  destroyOnFloorCollision: 0
+--- !u!114 &-8115548887680254124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284604006707955095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4492114e30d354cf3bf20095e7a485e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+--- !u!114 &-9185184609794472332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284604006707955095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e302ff3d0e1496080a2365907ddbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damager
+  damageAmt: 110
+  isInstantKill: 1
+--- !u!114 &5570959200173603337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4520067415575230871, guid: f7552ce9306b340ac8105c879a7f3a3d, type: 3}
+  m_PrefabInstance: {fileID: 8352634409998304158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284604006707955095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c054f3aee68e410f87cbaa1fe2ec448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PawnSpaceship

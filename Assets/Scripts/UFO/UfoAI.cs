@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class UfoAI : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float chaseRange = 100f;
+    public float moveSpeed = 15f;
+    public float chaseRange = 10000f;
     private Transform playerTransform;
     private Rigidbody rb;
 

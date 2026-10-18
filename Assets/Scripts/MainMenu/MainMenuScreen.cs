@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuScreen : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MainMenuScreen : MonoBehaviour
     public Button someOptionsBtn;
     public Button someQuitBtn;
     public Button someCreditsButton;
+    public TextMeshProUGUI HighScore;
 
     [Header("Options Screen ref")]
     public GameObject optionsGUI;
@@ -30,7 +32,7 @@ public class MainMenuScreen : MonoBehaviour
 
     [Header("Quit Game Hotkey")]
     public Key quitGame = Key.Escape;
-
+//b
     void Start()
     {
         // Setup button listeners
@@ -52,6 +54,9 @@ public class MainMenuScreen : MonoBehaviour
         {
             someCreditsButton.onClick.AddListener(OnCreditsBtnPressed);
         }
+
+        int best = PlayerPrefs.GetInt("HighScore", 0);
+        HighScore.text = "Current High Score: " + best;
     }
 
     void OnDestroy()

@@ -20,7 +20,9 @@ public class AstroidRotate : MonoBehaviour
        float randomAngle = Random.Range(0f, 360f);
        Vector3 moveDirection = new Vector3(Mathf.Sin(randomAngle * Mathf.Deg2Rad), Mathf.Cos(randomAngle * Mathf.Deg2Rad), 0f);
        
-       rb.linearVelocity = moveDirection * moveSpeed;
+
+       rb.AddForce(moveDirection * moveSpeed, ForceMode.VelocityChange);
+       //rb.linearVelocity = moveDirection * moveSpeed;
 
        // 2. Set constant physics-based rotation (spinning on the Z axis)
        // This forces the Rigidbody to spin perfectly around its physics center of mass!

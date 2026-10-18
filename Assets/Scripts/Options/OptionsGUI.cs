@@ -27,7 +27,7 @@ public class OptionsGUI : MonoBehaviour
                 "OptionsGUI: Assign the Audio Mixer and all three Sliders in the Inspector.",
                 this
             );
-            enabled = false;
+            enabled = true;
             return;
         }
 

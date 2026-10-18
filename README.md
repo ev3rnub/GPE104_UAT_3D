@@ -1,9 +1,7 @@
 # GPE104 Unity Project
 
-**Course:** GPE104  
-**Professor:** Matthew Henry  
-**Student:** Chad V
-**Engine:** Unity 6.6
+
+
 
 ---
 
@@ -39,3 +37,7 @@ Move and adapt any applicable code created in the previous project (health, shoo
 - 10/14/2026:08:54PM - Ported over alot of the scripts from the previous 2d project. Modified existing scripts/code structure to use 3d model/assets in place of sprite. The player spaceship can shoot, use forces to move, can die and destroy astroids. I added a control as an extra to stop all angular motion via the X key. 
 
 - 10/17/2026:01:29AM - Added a UFO, EnemyAI, partially implemented GUI, OptionsGUI, MainMenu, win/lose. Setup Audio stuffs. MainMenu has sound. Added asteroid sfx to astroids. 
+
+- 10/18/2026:12:06PM - Got the GUI mostly implemented. Started on implementing astornaut pick up functionality. 
+
+- 10/18/2026:14:18PM - Completed basic GUI implementation, player height restriction, astronaut pickup, endgame/wingame. Ran into an issue with a collider that hung me up for 5 hours. :(.

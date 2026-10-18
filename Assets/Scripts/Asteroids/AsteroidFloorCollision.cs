@@ -25,7 +25,6 @@ public class AsteroidFloorCollision : MonoBehaviour
         }
         
         // Make sure the asteroid is affected by physics
-        rb.useGravity = true;
         rb.angularDamping = 0.05f;
     }
 

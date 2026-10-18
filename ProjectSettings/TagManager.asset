@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Astroid
   - Enemy
+  - Astronaut
   layers:
   - Default
   - TransparentFX

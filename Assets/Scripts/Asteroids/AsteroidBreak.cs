@@ -12,6 +12,8 @@ public class AsteroidBreak : MonoBehaviour
     public GameObject astroidPrefab;
     public int breakCount = 2;
     public bool broken = false;
+    public int generation = 0;
+    public int maxGenerations = 2;
     private Death death;
 
     void Start()
@@ -25,7 +27,7 @@ public class AsteroidBreak : MonoBehaviour
         if (broken) return;   // guards against two bullets killing it in the same frame
         broken = true;
 
-        if (astroidSize > minSize)
+        if (generation < maxGenerations)
         {
             Health myHealth = GetComponent<Health>();
             int childMaxHealth = (myHealth != null) ? Mathf.Max(1, myHealth.maxHealth / 2) : 0;
@@ -41,6 +43,7 @@ public class AsteroidBreak : MonoBehaviour
                 {
                     newAstroidScript.astroidPrefab = astroidPrefab;
                     newAstroidScript.astroidSize = childSize;
+                    newAstroidScript.generation = this.generation + 1;
                 }
 
                 // Set before the child's Start() runs, so it starts at this value.

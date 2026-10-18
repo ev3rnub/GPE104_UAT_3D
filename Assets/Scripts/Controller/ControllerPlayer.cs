@@ -8,8 +8,10 @@ using UnityEngine.Audio;
 
 public class ControllerPlayer : MyController
 {
+    [Header("Camera")]
     private Camera cam; 
 
+    [Header("KeyBinds")]
     public Key moveFwd = Key.W;
     public Key moveBak = Key.S;
     public Key rotateLeft = Key.A;
@@ -28,6 +30,7 @@ public class ControllerPlayer : MyController
     public Key options = Key.O;
     public Key Brake = Key.X;
 
+    [Header("Turbo")]
     public float turboMultiplier = 2f;
     public float someMaxWidth = Screen.width;
     public float someMaxHeight = Screen.height;
@@ -46,10 +49,10 @@ public class ControllerPlayer : MyController
     {
         cam = Camera.main; // get ref to main camera
         // optionsGUI.SetActive(false); //hide optionsGUI.
-        // if (GameManager.someGameManager != null)
-        // {
-        //     GameManager.someGameManager.controllerPlayer = this;
-        // }
+        if (GameManager.someGameManager != null)
+        {
+            GameManager.someGameManager.controllerPlayer = this;
+        }
     }
 
     // called once per frame

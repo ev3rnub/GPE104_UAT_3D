@@ -26,7 +26,6 @@ public class AsteroidFloorHandler : MonoBehaviour
         }
         
         // Configure Rigidbody for proper physics
-        rb.useGravity = true;
         rb.angularDamping = 0.05f;
     }
 
